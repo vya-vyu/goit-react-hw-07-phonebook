@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import s from './Form.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/constactsSlice';
+import { addContact } from 'redux/contactsOperation';
 import { selectContacts } from 'redux/contactsSelectors';
 
 const Form = () => {
@@ -15,7 +15,7 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const data = { id: uuidv4(), name, number };
+    const data = { name: name, phone: number };
     contacts.find(
       contact => contact.name.toLowerCase() === data.name.toLowerCase()
     )
